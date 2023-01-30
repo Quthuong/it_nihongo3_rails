@@ -5,6 +5,7 @@
   Logged in as <strong><%= current_user.email %></strong>.
   <%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <br><a href = "/books">本一覧を見る</a>
 <% else %>
   <%= link_to "サインイン", new_user_session_path, :class => 'navbar-link'  %>
   <%= link_to "ユーザー登録", new_user_registration_path, :class => 'navbar-link'  %> |
