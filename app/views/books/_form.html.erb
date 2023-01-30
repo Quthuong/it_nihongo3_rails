@@ -20,7 +20,10 @@
     <%= form.label :number_of_pages %>
     <%= form.number_field :number_of_pages %>
   </div>
-
+ <div class="field">
+     <%= form.label :Images %>
+     <%= form.file_field :image, id: :post_file, class: 'form-control' %>
+   </div>
   <div class="actions">
     <%= form.submit %>
   </div>
