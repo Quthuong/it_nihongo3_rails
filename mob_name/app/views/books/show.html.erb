@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @book %>
+
+<div>
+  <%= link_to "Edit this book", edit_book_path(@book) %> |
+  <%= link_to "Back to books", books_path %>
+
+  <%= button_to "Destroy this book", @book, method: :delete %>
+</div>
+
+<%= form_with(model: @book_review) do |form| %>
+  <h2>Review Form</h2>
+  <div>
+    <%= form.label :review, style: "display: block" %>
+    <%= form.text_area :review %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+    <%= form.hidden_field :book_id, :value => @book.id %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<h2>Review list</h2>
+  <ul>
+    <% @book.book_review.each do |book_review| %>
+      <li><%= book_review.review %> (<i><%= book_review.user.name %></i>)</li>
+    <% end %>
+  </ul>
